@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ユーザー情報一覧</title>
+<link href="/css/list.css" rel="stylesheet"></link>
+<meta charset="utf-8" />
+</head>
+<body>
+    <h1>本情報一覧</h1>
+    <div>
+        <a th:href="@{/book/add}">新規登録はこちら</a>
+        <a th:href="@{/user/list}">ユーザー一覧はこちら</a>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>名前</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="book : ${booklist}" th:object="${book}">
+                <td class="center" th:text="*{bookID}"></td>
+                <td th:text="*{bookName}"></td>
+
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
